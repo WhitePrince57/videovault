@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="VideoVault — твоя особиста бібліотека корисних відео, навчальних матеріалів та цікавих знахідок.">
+
+    <title>VideoVault — Твоя відеобібліотека</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e50914">
+</head>
+
+<body>
+
+    <!-- =====================================
+         1. ВЕРХНЄ МЕНЮ
+    ====================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            VIDEO<span>VAULT</span>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#" class="nav-link active" data-page="home">
+                Головна
+            </a>
+
+            <a href="#" class="nav-link" data-page="library">
+                Моя бібліотека
+            </a>
+
+            <a href="#" class="nav-link" data-page="favorites">
+                Обране
+            </a>
+
+            <a href="#" class="nav-link" data-page="categories">
+                Категорії
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <div class="search-wrapper">
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Пошук відео..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <button class="add-button">
+                + Додати
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         2. ОСНОВНИЙ КОНТЕНТ
+    ====================================== -->
+
+    <main>
+
+        <!-- ГОЛОВНИЙ БАНЕР -->
+
+        <section class="hero">
+        </section>
+
+
+        <!-- =====================================
+             3. ОСНОВНИЙ РОБОЧИЙ ПРОСТІР
+        ====================================== -->
+
+        <div class="content">
+
+
+            <!-- СТАТИСТИКА -->
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <span>Усього відео</span>
+
+                    <h2 id="totalVideos">0</h2>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Обране</span>
+
+                    <h2 id="totalFavorites">0</h2>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>Категорії</span>
+
+                    <h2 id="totalCategories">0</h2>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 4. НЕЩОДАВНО ДОДАНІ
+            ====================================== -->
+
+            <section class="video-section" id="recentSection">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">ТВОЯ КОЛЕКЦІЯ</span>
+                        <h2>Нещодавно додані</h2>
+                    </div>
+
+                    <a href="#" class="nav-link" data-page="library">
+                        Усі відео →
+                    </a>
+
+                </div>
+
+                <div class="video-row">
+
+                    <!-- Картки відео створюються через JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 5. МОЄ ОБРАНЕ
+            ====================================== -->
+
+            <section class="video-section" id="favoritesSection">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">НАЙЦІКАВІШЕ</span>
+                        <h2>Твоє обране</h2>
+                    </div>
+
+                    <a href="#" class="nav-link" data-page="favorites">
+                        Усе обране →
+                    </a>
+
+                </div>
+
+                <div class="favorite-row video-row" id="favoriteRow">
+
+                    <!-- Обрані відео створюються через JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 6. БІБЛІОТЕКА
+            ====================================== -->
+
+            <section class="video-section" id="librarySection">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">УСІ МАТЕРІАЛИ</span>
+                        <h2>Моя бібліотека</h2>
+                    </div>
+
+                </div>
+
+                <div class="library-controls">
+
+                    <select id="categoryFilter">
+                        <option value="">Усі категорії</option>
+                    </select>
+
+                    <select id="sortVideos">
+                        <option value="newest">Спочатку нові</option>
+                        <option value="oldest">Спочатку старі</option>
+                        <option value="title">За назвою</option>
+                    </select>
+
+                </div>
+
+                <div class="library-row video-row" id="libraryRow">
+
+                    <!-- Усі відео створюються через JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 7. КАТЕГОРІЇ
+            ====================================== -->
+
+            <section class="video-section" id="categoriesSection">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">ОРГАНІЗАЦІЯ</span>
+                        <h2>Категорії</h2>
+                    </div>
+
+                </div>
+
+                <div class="categories-grid" id="categoriesGrid">
+
+                    <!-- Категорії створюються через JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 8. ПОРОЖНІЙ СТАН
+            ====================================== -->
+
+            <section class="empty-library" id="emptyLibrary">
+
+                <div class="empty-icon">▣</div>
+
+                <h2>Твоя бібліотека поки порожня</h2>
+
+                <p>
+                    Додай перше відео, щоб створити власну колекцію.
+                </p>
+
+                <button class="add-button">
+                    + Додати перше відео
+                </button>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         9. МОДАЛЬНЕ ВІКНО ДОДАВАННЯ ВІДЕО
+    ====================================== -->
+
+    <div class="modal-overlay" id="videoModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2>Додати відео</h2>
+
+                <button class="close-button" id="closeModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="videoForm">
+
+                <div class="form-group">
+
+                    <label for="videoUrl">
+                        Посилання на відео
+                    </label>
+
+                    <input
+                        type="url"
+                        id="videoUrl"
+                        placeholder="https://..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="videoTitle">
+                        Назва відео
+                    </label>
+
+                    <input
+                        type="text"
+                        id="videoTitle"
+                        placeholder="Наприклад: Python для початківців"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="videoCategory">
+                        Категорія
+                    </label>
+
+                    <select id="videoCategory" required>
+
+                        <option value="">Вибери категорію</option>
+
+                        <option value="Програмування">
+                            Програмування
+                        </option>
+
+                        <option value="Frappe / CRM">
+                            Frappe / CRM
+                        </option>
+
+                        <option value="Power BI">
+                            Power BI
+                        </option>
+
+                        <option value="Англійська">
+                            Англійська
+                        </option>
+
+                        <option value="Інше">
+                            Інше
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="videoNotes">
+                        Нотатки
+                    </label>
+
+                    <textarea
+                        id="videoNotes"
+                        placeholder="Що корисного в цьому відео?"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="videoTags">
+                        Теги
+                    </label>
+
+                    <input
+                        type="text"
+                        id="videoTags"
+                        placeholder="Python, навчання, практика"
+                    >
+
+                    <small>
+                        Розділяй теги комами
+                    </small>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelModal"
+                    >
+                        Скасувати
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Зберегти відео
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         10. ДЕТАЛЬНЕ ВІКНО ВІДЕО
+    ====================================== -->
+
+    <div class="video-detail-overlay" id="videoDetailModal">
+
+        <div class="video-detail">
+
+            <button class="detail-close" id="closeDetailModal">
+                ✕
+            </button>
+
+            <div class="detail-content">
+
+                <h2 id="detailTitle">
+                    Назва відео
+                </h2>
+
+                <p id="detailCategory"></p>
+
+
+                <!-- ВІДЕОПЛЕЄР -->
+
+                <div class="detail-player" id="detailPlayer">
+
+                    <div class="player-placeholder">
+
+                        <span>▶</span>
+
+                        <p>
+                            Відео буде відображатися тут
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- НОТАТКИ -->
+
+                <div class="detail-notes">
+
+                    <h3>Мої нотатки</h3>
+
+                    <p id="detailNotes"></p>
+
+                </div>
+
+
+                <!-- ТЕГИ -->
+
+                <div class="detail-tags">
+
+                    <h3>Теги</h3>
+
+                    <div id="detailTags"></div>
+
+                </div>
+
+
+                <!-- ОРИГІНАЛЬНЕ ПОСИЛАННЯ -->
+
+                <a
+                    href="#"
+                    id="detailVideoLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="detail-open-button"
+                >
+                    ↗ Відкрити на оригінальному сайті
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         11. JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+    <script src="management.js"></script>
+
+    <script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener("load", () => {
+
+            navigator.serviceWorker.register("./sw.js")
+                .then(registration => {
+                    console.log("VideoVault: Service Worker активовано!");
+                })
+                .catch(error => {
+                    console.error("Помилка Service Worker:", error);
+                });
+
+        });
+
+    }
+</script>
+
+</body>
+
+</html>
